@@ -1,0 +1,134 @@
+import random
+from colorama import Fore
+import requests
+import sys
+import sys as n
+import os
+import time as mm
+import json
+import time
+from colorama import Fore, init
+G = Fore.GREEN
+R = Fore.RED
+Y = Fore.YELLOW
+B = Fore.BLUE
+C = Fore.CYAN
+K = Fore.LIGHTYELLOW_EX
+L = Fore.LIGHTRED_EX
+count = 0
+def slow(M):
+    for c in M + '\n':
+        n.stdout.write(c)
+        n.stdout.flush()
+        mm.sleep(1. / 500)
+
+slow(R+'''
+  _______    _____    _  __   _______     ____     _  __
+ |__   __|  |_   _|  | |/ /  |__   __|   / __ \   | |/ /
+    | |       | |    | ' /      | |     | |  | |  | ' / 
+    | |       | |    |  <       | |     | |  | |  |  <  
+    | |      _| |_   | . \      | |     | |__| |  |   \ 
+    |_|     |_____|  |_|\_\     |_|      \____/   |_|\_\\
+                                                     ''')   
+slow(B+'''  ____    __     __
+ |  _ \   \ \   / /
+ | |_) |   \ \_/ / 
+ |  _ <     \   /  
+ | |_) |     | |   
+ |____/      |_|   
+                   
+
+  _____     ______    _____              
+ |  __ \   |  ____|  |  __ \       /\    
+ | |__) |  | |__     | |  | |     /  \   
+ |  _  /   |  __|    | |  | |    / /\ \  
+ | | \ \   | |____   | |__| |   / ____ \ 
+ |_|  \_\  |______|  |_____/   /_/    \_\\
+                                         
+                                         ''')
+
+
+time.sleep(1)
+slow(C+"- 𝙲𝙷𝙴𝙲𝙺𝙴𝚁 𝚃𝙸𝙺𝚃𝙾𝙺 𝙱𝚈 𝚁𝙴𝙳𝙰 \n")
+time.sleep(1)
+
+file = 'users.txt'
+
+slow(B+'[1] 𝙴𝚗𝚃𝙴𝚛 𝚂𝚎𝚜𝚜𝚒𝚘𝚗𝙸𝙳 𝙼𝙰𝙽𝚄𝙰𝙻𝚈?\n')
+slow(Y+'[2] 𝚁𝚊𝙽𝚍𝙾𝚖 𝚂𝚎𝚂𝚜𝙸𝚘𝙽𝚒𝙳?\n')
+mod = input(L+'[?] 𝙴𝙽𝚃𝙴𝚁 𝙼𝙾𝙳 :')
+if mod == '1':
+    print(" ")
+    ID = input("𝙴𝙽𝚃𝙴𝚁 𝚈𝙾𝚄𝚁 𝙸𝙳 𝙸𝙽 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼--> ")
+    print(" ")
+    tokan = input("𝙴𝙽𝚃𝙴𝚁 𝚈𝙾𝚄𝚁 𝙱𝙾𝚃 𝚃𝙾𝙺𝙴𝙽--> ")
+    print(" ")
+    sw = input('𝙴𝙽𝚃𝙴𝚁 𝚈𝙾𝚄𝚁 𝚂𝙴𝚂𝚂𝙸𝙾𝙽𝙸𝙳--> :')
+    
+    if file == "1" or " ":
+        file = file
+        files = open(file).read().splitlines()
+
+        for files in files:
+            url = "https://www.tiktok.com/api/uniqueid/check/?region=SA&aid=1233&unique_id=" + files + "&app_language=ar"
+            payload = ""
+            headers = {
+                "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.66 Safari/537.36",
+                "Connection": "close",
+                "Host": "www.tiktok.com",
+                "Accept-Encoding": "gzip, deflate",
+                "Cache-Control": "max-age=0"
+            }
+            cookies = {'sessionid': sw}
+            response = requests.request("GET", url, data=payload, headers=headers, cookies=cookies)
+            post = str(response.json()["status_msg"])
+            if post == "" or "":
+                count += 1
+                print(G+"{}: {}".format(count, files.strip()) + " | Available")
+                tele = (f'https://api.telegram.org/bot{tokan}/sendMessage?chat_id={ID}&text=𝚃𝙷𝙴 𝙷𝚄𝙽𝚃𝙴𝚁 𝙳𝙲𝚂𝙸𝚀☯︎︎♪\n♡––––––––––––––——♡\n   𝙸 𝙶𝙴𝚃 𝙽𝙴𝚆 𝚄𝚂𝙴𝚁 ☠︎︎ \n♡––––––––––––––——♡\n 𖡃 𝚄𝚂𝙴𝚁 : {files}\n𖡃  𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁--->@I_J_T \n𖡃   \n♡––––––––––––––——♡')
+                r = requests.post(tele)
+                with open('usersfound.txt', 'a') as x:
+                    x.write(files + '\n')
+            else:
+                count += 1
+                print(R+"{}: {}".format(count, files.strip()) + " | NoT Available")
+if mod == '2':
+
+    ID = input("𝙴𝙽𝚃𝙴𝚁 𝚈𝙾𝚄𝚁 𝙸𝙳 𝙸𝙽 𝚃𝙴𝙻𝙴𝙶𝚁𝙰𝙼--> ")
+    print(" ")
+    tokan = input("𝙴𝙽𝚃𝙴𝚁 𝚈𝙾𝚄𝚁 𝙱𝙾𝚃 𝚃𝙾𝙺𝙴𝙽--> ")
+    time.sleep(1)
+    use = 'dfg.txt'
+    headers = {
+                "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
+                "user-agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.141 Safari/537.36",
+                "Connection": "close",
+                "Host": "www.tiktok.com",
+                "Accept-Encoding": "gzip, deflate",
+                "Cache-Control": "max-age=0"
+    }
+    file = open('user.txt', "r") 
+
+    while True:
+      Check = file.readline().split('\n')[0]
+      tiklog = f'https://www.tiktok.com/@{Check}'
+      rq = requests.get(tiklog, headers=headers)
+      if rq.status_code == 404:
+
+            count += 1
+            print(G+"{}: {}".format(count, Check.strip()) + " | Available")
+            tele = (f'https://api.telegram.org/bot{tokan}/sendMessage?chat_id={ID}&text=𝚃𝙷𝙴 𝙷𝚄𝙽𝚃𝙴𝚁 𝙳𝙲𝚂𝙸𝚀☯︎︎♪ ☯︎︎␈\n♡––––––––––––––——♡\n   𝙸 𝙶𝙴𝚃 𝙽𝙴𝚆 𝚄𝚂𝙴𝚁 ☠︎︎ \n♡––––––––––––––——♡\n 𖡃 𝚄𝚂𝙴𝚁 : {Check}\n𖡃 𝙳𝙴𝚅𝙴𝙻𝙾𝙿𝙴𝚁 --->@I_J_T                       \n𖡃 \n♡––––––––––––––——♡')
+            r = requests.post(tele)
+            with open('usersfound.txt', 'a') as x:
+             x.write(Check + '\n')
+
+      elif rq.status_code == 200:
+          count += 1
+          print(R+"{}: {}".format(count, Check.strip()) + " | NoT Available")
+          if (Check == ""):
+              break
+
+
+	
+	
